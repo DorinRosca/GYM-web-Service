@@ -1,0 +1,138 @@
+﻿@model eUseControl.Web.Models.Trainer
+<style>
+     .small-label {
+          font-size: 20px;
+     }
+
+     .nowrap-label {
+          white-space: nowrap;
+     }
+
+     .wide-textbox {
+          width: 100%;
+     }
+</style>
+
+@using (Html.BeginForm())
+{
+     @Html.AntiForgeryToken()
+     <section>
+          <div class="site-section" id="trainer-section">
+               <div class="container">
+                    <div class="row justify-content-center text-center mb-5" data-aos="fade-up">
+                         <div class="col-md-8 section-heading">
+                              <span class="subheading">Trainer</span>
+                              @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                              @Html.HiddenFor(model => model.Id)
+                              <div class="form-group">
+                                   <h2>
+                                        <label class="control-label col-md-2 small-label">@Html.DisplayNameFor(model => model.Name)</label>
+                                   </h2>
+                                   <div class="col-md-10">
+                                        @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control wide-textbox" } })
+                                        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                                   </div>
+                              </div>
+                         </div>
+                    </div>
+                    <section>
+                         <div class="left">
+                              <div class="row justify-content-center text-center mb-5" data-aos="fade-up">
+                                   <div class="col-md-8 section-heading">
+                                        <div class="form-group">
+                                             <h2>
+                                                  <label class="control-label col-md-2 small-label">@Html.DisplayNameFor(model => model.Bio)</label>
+                                             </h2>
+                                             @Html.TextAreaFor(model => model.Bio, new
+                                             {
+                                                 @class = "form-control wide-textbox",
+                                                 @cols = "60",
+                                                 @rows = "10",
+                                             })
+                                             @Html.ValidationMessageFor(model => model.Bio, "", new { @class = "validation-error" })
+
+                                        </div>
+                                   </div>
+                              </div>
+                         </div>
+                    </section>
+                    <div class="center" data-aos="fade-up">
+                         <div class="circle">
+                              <img src="@Model.ImageUrl" />
+                         </div>
+                         <div class="form-group">
+                              <h2>
+                                   <label class="control-label col-md-2 small-label">@Html.DisplayNameFor(model => model.ImageUrl)</label>
+                              </h2>
+                              <div class="col-md-10">
+                                   @Html.EditorFor(model => model.ImageUrl, new { htmlAttributes = new { @class = "form-control wide-textbox" } })
+                                   @Html.ValidationMessageFor(model => model.ImageUrl, "", new { @class = "text-danger" })
+                              </div>
+                         </div>
+                    </div>
+                    <div class="right">
+                         <div class="row justify-content-center text-center mb-5" data-aos="fade-up">
+                              <div class="col-md-8 section-heading">
+                                   <h2 class="heading mb-5">Details</h2>
+                              </div>
+                              <div class="ftco-feature-1-text">
+                                   <div class="form-group">
+                                        <h2>
+                                             <label class="control-label col-md-2 small-label">@Html.DisplayNameFor(model => model.Age)</label>
+                                        </h2>
+                                        <div class="col-md-10">
+                                             @Html.EditorFor(model => model.Age, new { htmlAttributes = new { @class = "form-control wide-textbox" } })
+                                             @Html.ValidationMessageFor(model => model.Age, "", new { @class = "text-danger" })
+                                        </div>
+                                   </div>
+                                   <div class="form-group">
+                                        <h2>
+                                             <label class="control-label col-md-2 small-label">@Html.DisplayNameFor(model => model.Availability)</label>
+                                        </h2>
+                                        <div class="col-md-10">
+                                             @Html.EditorFor(model => model.Availability, new { htmlAttributes = new { @class = "form-control wide-textbox" } })
+                                             @Html.ValidationMessageFor(model => model.Availability, "", new { @class = "text-danger" })
+                                        </div>
+                                   </div>
+                                   <div class="form-group">
+                                        <h2>
+                                             <label class="control-label col-md-2 small-label nowrap-label">@Html.DisplayNameFor(model => model.Price)</label>
+                                        </h2>
+                                        <div class="col-md-10">
+                                             @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control wide-textbox" } })
+                                             @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+                                        </div>
+                                   </div>
+                                   <div class="form-group">
+                                        <h2>
+                                             <label class="control-label col-md-2 small-label">@Html.DisplayNameFor(model => model.Number)</label>
+                                        </h2>
+                                        <div class="col-md-10">
+                                             @Html.EditorFor(model => model.Number, new { htmlAttributes = new { @class = "form-control wide-textbox" } })
+                                             @Html.ValidationMessageFor(model => model.Number, "", new { @class = "text-danger" })
+                                        </div>
+                                   </div>
+                                   <div class="form-group">
+                                        <h2>
+                                             <label class="control-label col-md-2 small-label">@Html.DisplayNameFor(model => model.Specialization)</label>
+                                        </h2>
+                                        <div class="col-md-10">
+                                             @Html.EditorFor(model => model.Specialization, new { htmlAttributes = new { @class = "form-control wide-textbox" } })
+                                             @Html.ValidationMessageFor(model => model.Specialization, "", new { @class = "text-danger" })
+                                        </div>
+                                   </div>
+                              </div>
+                             
+                              <div class="form-group">
+                                   <div class="col-md-offset-2 col-md-10">
+                                        <input type="submit" class="btn btn-primary py-3 px-5 btn-block" value="Save" />
+                                   </div>
+                              </div>
+                         </div>
+                    </div>
+               </div>
+          </div>
+     </section>
+}
+
+<div class="clearfix"></div>

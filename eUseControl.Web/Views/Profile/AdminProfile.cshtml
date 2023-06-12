@@ -1,0 +1,78 @@
+﻿@model IEnumerable<eUseControl.Web.Models.OrderInfo>
+
+@{
+     Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+     .long-text {
+          max-width: 800px; /* Adjust the value as needed */
+          word-wrap: break-word;
+          overflow-wrap: break-word; /* For compatibility with older browsers */
+     }
+
+     table {
+          border-collapse: collapse;
+          width: 80%;
+     }
+
+     th, td {
+          border: 1px solid black;
+          padding: 8px;
+          text-align: left;
+     }
+
+     th {
+          background-color: #f2f2f2;
+     }
+</style>
+
+
+<div class="site-section bg-light contact-wrap" id="contact-section">
+     <div class="row justify-content-center text-center mb-5">
+          <div class="col-md-8  section-heading">
+               <h2 class="heading mb-3">List of Orders</h2>
+          </div>
+     </div>
+
+     <div class="row justify-content-center">
+          <table>
+               <thead>
+                    <tr>
+                         <th>@Html.DisplayNameFor(model => model.Id)</th>
+                         <th>@Html.DisplayNameFor(model => model.UserId)</th>
+                         <th>@Html.DisplayNameFor(model => model.UserName)</th>
+                         <th>@Html.DisplayNameFor(model => model.SubscriptionId)</th>
+                         <th>@Html.DisplayNameFor(model => model.SubscriptionName)</th>
+                         <th>@Html.DisplayNameFor(model => model.TrainerId)</th>
+                         <th>@Html.DisplayNameFor(model => model.TrainerName)</th>
+                         <th>@Html.DisplayNameFor(model => model.SubscriptionDurationId)</th>
+                         <th>@Html.DisplayNameFor(model => model.SubscriptionDurationName)</th>
+                         <th>@Html.DisplayNameFor(model => model.PurchaseDate)</th>
+                         <th>@Html.DisplayNameFor(model => model.ExpirationDate)</th>
+                         <th>@Html.DisplayNameFor(model => model.IsValid)</th>
+                         <th>@Html.DisplayNameFor(model => model.Price)</th>
+                    </tr>
+               </thead>
+               <tbody>
+                    @foreach (var feedback in Model)
+                    {
+                         <tr>
+                              <td>@feedback.Id</td>
+                              <td>@feedback.UserId</td>
+                              <td>@feedback.UserName</td>
+                              <td>@feedback.SubscriptionId</td>
+                              <td>@feedback.SubscriptionName</td>
+                              <td>@feedback.TrainerId</td>
+                              <td>@feedback.TrainerName</td>
+                              <td>@feedback.SubscriptionDurationId</td>
+                              <td>@feedback.SubscriptionDurationName</td>
+                              <td>@feedback.PurchaseDate</td>
+                              <td>@feedback.ExpirationDate</td>
+                              <td>@feedback.IsValid</td>
+                              <td>@feedback.Price</td>
+                         </tr>
+                    }
+               </tbody>
+          </table>
+     </div>
+</div>
